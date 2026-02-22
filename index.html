@@ -24,6 +24,14 @@
                     <h3 class="logo-text">LeafyPod</h3>
                 </a>
 
+                <img class="header-img" src="assets/images/header-bg.png" alt="LeafyPod" />
+
+                <button class="menu-toggle" type="button" aria-label="Menu">
+                    <span class="menu-toggle-line"></span>
+                    <span class="menu-toggle-line"></span>
+                    <span class="menu-toggle-line"></span>
+                </button>
+
                 <ul class="header-nav-links">
                     <li class="header-nav-link-wrapper"><a class="header-nav-link light-text" href="#about">Про товар</a></li>
                     <li class="header-nav-link-wrapper"><a class="header-nav-link light-text" href="#app">Додаток</a></li>
@@ -44,8 +52,6 @@
                 </button>
             </div>
         </div>
-
-        <img class="header-img" src="assets/images/header-bg.png" alt="LeafyPod" />
 
     </header>
 
@@ -358,6 +364,12 @@
 
         <img class="leafs3-img" src="assets/images/leafs3.png" alt="leafs 3">
     </footer>
+
+    <script>
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('.header-nav-links').classList.toggle('open');
+        });
+    </script>
 
 </body>
 </html>

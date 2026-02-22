@@ -1,8 +1,13 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
 body {
     font-family: var(--font-primary);
     font-weight: 400;
     background-color: #F3F2EE;
     margin: 0;
+    overflow-x: hidden;
 }
 
 h1,
@@ -41,12 +46,12 @@ ul, ol {
 
 .header {
     margin-bottom: 3rem;
-    display: flex;
+    position: relative;
+    padding: 4rem 0 0 4rem;
 }
 
 .header-wrapper {
     width: 60%;
-    margin: 4rem 0 0 4rem;
     display: flex;
     flex-direction: column;
     gap: 4rem;
@@ -137,7 +142,13 @@ ul, ol {
 }
 
 .header-img {
+    position: absolute;
+    top: 0;
+    right: 0;
     width: 40%;
+    height: 100%;
+    object-fit: contain;
+    object-position: top right;
 }
 
 .problems {
@@ -189,6 +200,7 @@ ul, ol {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-shrink: 0;
 }
 
 .problems-card-title {
@@ -259,6 +271,7 @@ ul, ol {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-shrink: 0;
     font-size: 2rem;
     font-weight: 600;
 }
@@ -307,16 +320,22 @@ ul, ol {
     background-color: #FFFFFF;
     color: #33321E;
     border-radius: 20px;
-    width: 19%;
+    width: 30%;
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    overflow: hidden;
 }
 
 .features-card-wrapper {
     display: flex;
-    gap: 1rem;
+    justify-content: space-between;
     align-items: center;
+}
+
+.features-card-icon {
+    flex-shrink: 0;
+    max-width: 48px;
 }
 
 .features-card-title {
@@ -340,8 +359,8 @@ ul, ol {
 }
 
 .functions-list {
-    width: calc(50% - 7.5rem);
-    padding: 0 9rem 0 6rem;
+    flex: 1;
+    padding: 0 4rem 0 3rem;
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -371,12 +390,13 @@ ul, ol {
 }
 
 .functions-video {
-    width: calc(50% - 7.5rem);
+    flex: 1;
     border-radius: 20px;
     overflow: hidden;
     aspect-ratio: 587 / 427;
     object-fit: cover;
     object-position: 50% center;
+    min-width: 0;
 }
 
 .kit {
@@ -501,6 +521,7 @@ ul, ol {
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    overflow: hidden;
 }
 
 .footer-wrapper {
@@ -558,4 +579,530 @@ ul, ol {
     right: 0;
     top: 0;
     border-top-right-radius: 20px;
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    flex-direction: column;
+    gap: 5px;
+    z-index: 10;
+}
+
+.menu-toggle-line {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: #33321E;
+    opacity: 50%;
+    border-radius: 2px;
+}
+
+@media (min-width: 1600px) {
+    .problems-cards,
+    .problems-title {
+        max-width: 1400px;
+    }
+
+    .solution-title,
+    .solution-wrapper {
+        max-width: 1400px;
+    }
+
+    .features-cards,
+    .features-title {
+        max-width: 1400px;
+    }
+
+    .functions-title,
+    .functions-wrapper {
+        max-width: 1400px;
+    }
+
+    .kit-title,
+    .kit-list {
+        max-width: 1400px;
+    }
+
+    .reviews-cards,
+    .reviews-title {
+        max-width: 1400px;
+    }
+
+    .header {
+        max-width: 1600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .header-wrapper {
+        max-width: 900px;
+    }
+
+    .solution {
+        align-items: center;
+    }
+
+    .functions {
+        align-items: center;
+    }
+
+    .footer-wrapper {
+        max-width: 1400px;
+    }
+}
+
+@media (max-width: 1200px) {
+    h1 {
+        font-size: 3rem;
+    }
+
+    h2 {
+        font-size: 2.25rem;
+    }
+
+    .header {
+        padding: 3rem 0 0 3rem;
+    }
+
+    .header-wrapper {
+        gap: 3rem;
+    }
+
+    .header-hero {
+        gap: 2rem;
+    }
+
+    .header-hero-button {
+        width: 280px;
+        height: 65px;
+    }
+
+    .header-hero-button-text {
+        font-size: 20px;
+    }
+
+    .problems {
+        padding: 2rem 3rem;
+    }
+
+    .problems-card {
+        width: 40%;
+    }
+
+    .problems-card-title {
+        font-size: 24px;
+    }
+
+    .solution {
+        padding: 2rem 3rem;
+    }
+
+    .solution-wrapper {
+        gap: 3rem;
+    }
+
+    .solution-hero {
+        width: 400px;
+        flex-shrink: 0;
+    }
+
+    .solution-video {
+        width: auto;
+        flex: 1;
+        min-width: 0;
+    }
+
+    .features {
+        padding: 2rem 3rem;
+    }
+
+    .features-card {
+        width: 42%;
+    }
+
+    .functions {
+        padding: 4rem 3rem;
+    }
+
+    .functions-list {
+        padding: 0 3rem 0 2rem;
+    }
+
+    .kit {
+        padding: 2rem 3rem;
+    }
+
+    .kit-list {
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(2, 180px);
+    }
+
+    .kit-title {
+        width: 100%;
+    }
+
+    .reviews {
+        padding: 2rem 3rem;
+        gap: 2rem;
+    }
+
+    .footer {
+        padding: 2rem 3rem;
+    }
+
+    .leafs1-img {
+        bottom: -250px;
+        width: 180px;
+    }
+
+    .leafs2-img {
+        width: 180px;
+    }
+}
+
+@media (max-width: 1024px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    .header {
+        padding: 2rem 0 0 2rem;
+    }
+
+    .header-wrapper {
+        gap: 2rem;
+    }
+
+    .header-hero {
+        gap: 1.5rem;
+    }
+
+    .problems {
+        padding: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .problems-card {
+        width: 42%;
+    }
+
+    .solution {
+        padding: 2rem;
+    }
+
+    .solution-wrapper {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .solution-hero {
+        width: 100%;
+    }
+
+    .solution-video {
+        width: 100%;
+        flex: none;
+    }
+
+    .features {
+        padding: 2rem;
+    }
+
+    .functions {
+        padding: 3rem 2rem;
+    }
+
+    .functions-wrapper {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .functions-list {
+        flex: none;
+        width: 100%;
+        padding: 0;
+    }
+
+    .functions-video {
+        flex: none;
+        width: 100%;
+    }
+
+    .kit {
+        padding: 2rem;
+    }
+
+    .kit-list {
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(2, 160px);
+    }
+
+    .reviews-card {
+        width: 42%;
+    }
+
+    .footer {
+        padding: 2rem;
+    }
+
+    .leafs1-img {
+        bottom: -150px;
+        width: 150px;
+    }
+
+    .leafs2-img {
+        width: 120px;
+    }
+
+    .leafs3-img {
+        transform: translateX(40%);
+    }
+
+    .header, .solution, .reviews {
+        margin-bottom: 2rem;
+    }
+}
+
+@media (max-width: 920px) {
+    .header {
+        padding: 1.5rem;
+    }
+
+    .header-wrapper {
+        width: auto;
+        gap: 2rem;
+    }
+
+    .header-nav {
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        align-items: start;
+        height: auto;
+        position: relative;
+    }
+
+    .header-img {
+        position: static;
+        width: auto;
+        height: auto;
+        max-height: 300px;
+        justify-self: center;
+        object-fit: contain;
+        object-position: center top;
+        margin-top: -1.5rem;
+    }
+
+    .menu-toggle {
+        display: flex;
+        justify-self: end;
+    }
+
+    .header-nav-links {
+        position: absolute;
+        top: 2rem;
+        left: 10px;
+        z-index: 20;
+        display: none;
+        flex-direction: column;
+        gap: 0.75rem;
+        background-color: #F3F2EE;
+        padding: 0.75rem 1rem;
+        border-radius: 10px;
+    }
+
+    .header-nav-links.open {
+        display: flex;
+    }
+
+    .header-nav-link-wrapper {
+        gap: 0;
+    }
+
+    .header-nav-link-wrapper:not(:last-child)::after {
+        display: none;
+    }
+
+    .header-hero {
+        gap: 1.5rem;
+    }
+
+    .header-hero-title {
+        max-width: 100%;
+    }
+
+    .header-hero-text {
+        max-width: 100%;
+    }
+
+    .header-hero-button {
+        align-self: center;
+        max-width: 100%;
+    }
+
+    .header-hero-button-text {
+        font-size: 20px;
+        padding: 0 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    h3 {
+        font-size: 1.25rem;
+    }
+
+    p {
+        font-size: 16px;
+    }
+
+    .header-wrapper {
+        gap: 0;
+    }
+
+    .header-img {
+        max-height: 280px;
+    }
+
+    .problems {
+        padding: 1.5rem;
+        gap: 1.5rem;
+    }
+
+    .problems-card {
+        width: 100%;
+    }
+
+    .problems-card-title {
+        font-size: 20px;
+    }
+
+    .solution {
+        padding: 1.5rem;
+    }
+
+    .solution-subtitle {
+        font-size: 24px;
+    }
+
+    .features {
+        padding: 1.5rem;
+        gap: 1.5rem;
+    }
+
+    .features-card {
+        width: 100%;
+    }
+
+    .functions {
+        padding: 2rem 1.5rem;
+    }
+
+    .kit {
+        padding: 1.5rem;
+        gap: 1.5rem;
+    }
+
+    .kit-list {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(4, 150px);
+        gap: 1rem;
+    }
+
+    .kit-list-big-element {
+        grid-column: span 2;
+        grid-row: span 2;
+    }
+
+    .kit-list-big-element-title {
+        font-size: 24px;
+    }
+
+    .reviews {
+        padding: 1.5rem;
+        gap: 1.5rem;
+    }
+
+    .reviews-card {
+        width: 100%;
+    }
+
+    .footer {
+        padding: 1.5rem;
+    }
+
+    .footer-wrapper {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .leafs1-img {
+        bottom: -120px;
+        width: 100px;
+    }
+
+    .leafs2-img {
+        width: 100px;
+    }
+
+    .header, .solution, .reviews {
+        margin-bottom: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.75rem;
+    }
+
+    h2 {
+        font-size: 1.25rem;
+    }
+
+    .header-img {
+        max-height: 220px;
+    }
+
+    .header-hero-button {
+        width: 100%;
+    }
+
+    .problems-card {
+        padding: 1.5rem;
+    }
+
+    .solution-list-element-number,
+    .functions-list-element-number {
+        width: 32px;
+        height: 32px;
+        font-size: 1.5rem;
+    }
+
+    .kit-list {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(4, 130px);
+    }
+
+    .leafs1-img {
+        width: 70px;
+        bottom: -80px;
+    }
+
+    .leafs2-img {
+        width: 70px;
+    }
 }
